@@ -1,0 +1,8 @@
+CREATE TABLE progress (
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    user_id INT(11) DEFAULT NULL,
+    progress_date DATE DEFAULT NULL,
+    announcement TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+    
+    INDEX (user_id)
+);

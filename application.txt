@@ -1,0 +1,14 @@
+CREATE TABLE applications (
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    user_id INT(11) DEFAULT NULL,
+    job_id INT(11) DEFAULT NULL,
+    resume VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+    status ENUM('Resume Review', 'Exam', 'Interview', 'Final') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'Resume Review',
+    date_applied TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    announcement TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+    announcement_date DATE DEFAULT NULL,
+    hired_date DATETIME DEFAULT NULL,
+    
+    INDEX (user_id),
+    INDEX (job_id)
+);

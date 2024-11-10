@@ -1,0 +1,9 @@
+CREATE TABLE notification (
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    user_id INT(11) DEFAULT NULL,
+    message TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+    status ENUM('unread', 'read') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'unread',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    
+    INDEX (user_id)
+);

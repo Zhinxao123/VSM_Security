@@ -1,0 +1,14 @@
+CREATE TABLE reports (
+    id INT(11) PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    email VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    job_title VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    status ENUM('Resume Review', 'Exam', 'Interview', 'Final') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+    resume VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+    announcement TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+    announcement_date DATE DEFAULT NULL,
+    declined_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    hired_date DATETIME NOT NULL,
+    user_id INT(11) NOT NULL,
+    job_id INT(11) NOT NULL
+);
