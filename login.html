@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+    <title>Log In</title>
+    <style>
+    .close-button {
+        position: absolute;
+        top: 20px;
+        left: 20px; /* Adjusted to the left */
+        font-size: 24px;
+        color: #333;
+        text-decoration: none;
+        z-index: 1001; /* Higher than other elements */
+        cursor: pointer;
+    }
+    
+    .close-button:hover {
+        color: #ff0000; /* Optional: change color on hover */
+    }
+    
+    /* Add more styles for the admin sign-in container */
+    .admin-sign-in {
+        /* Example styles */
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    body {
+            background-image: url('vsm4.jpg'); /* Replace with your image URL */
+            background-size: cover; /* Makes sure the image covers the whole background */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents repeating the background image */
+            background-attachment: fixed; /* Keeps the background fixed when scrolling */
+            margin: 0; /* Remove default margin */
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- Close Button that redirects to index.html -->
+        <a href="index.html" class="close-button"><i class="fas fa-arrow-left"></i> Back</a>
+
+        <div class="form-container sign-up">
+            <form action="register.php" method="POST">
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="mobile" placeholder="Mobile Number" required pattern="0\d{10}">
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        
+        <div class="form-container sign-in">
+            <form action="login.php" method="POST">
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email and password</span>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <a href="#">Forget Your Password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>VSM Security</h1>
+                    <p>Have an Account? Click Here!</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>VSM Security</h1>
+                    <p>Have No Account? Click Here!</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

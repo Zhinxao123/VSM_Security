@@ -1,0 +1,420 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #2a2185;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+  --transition-speed: 0.3s ease-in-out;
+  --shadow: 0 7px 25px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--gray);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  
+}
+.me-3{
+  margin-right: 13px;
+}
+
+/* =============== Header Styles =============== */
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--gray);
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1001; /* High z-index for the header */
+  }
+  .header.sticky {
+    background: var(--white); /* Change background color when sticky */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for sticky state */
+    position: fixed; /* Fix position */
+    width: 100%; /* Ensure it spans the full width */
+    top: 0; /* Align it to the top */
+    left: 0; /* Align it to the left */
+    z-index: 1001; /* Ensure it stays on top of other elements */
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+  }
+
+  .header .hamburger {
+    cursor: pointer;
+    margin-right: 20px; /* Space between hamburger and title */
+    position: fixed; /* Keep it fixed for visibility */
+    top: 15px; /* Adjusted position at the top */
+    left: 20px; /* Position from the left */
+    z-index: 1000; /* Keep it above other elements */
+    display: block; /* Always display the hamburger */
+  }
+
+  .header-title {
+    font-size: 1.5rem; /* Adjust font size as needed */
+    font-weight: bold; /* Bold for emphasis */
+    color: var(--blue); /* Use your primary color for the title */
+    margin-left: -10px; /* Space to avoid collision with hamburger */
+    flex-grow: 1; /* Allows the title to grow and take available space */
+  }
+
+  .right-side {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Pushes the right side to the end */
+  }
+
+  .user-name {
+    margin-right: 20px; /* Space between user name and icons */
+    color: var(--blue); /* Color for the username */
+  }
+
+/* =============== Navigation ================ */
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;   
+  background: var(--blue);
+  transition: var(--transition-speed);
+  z-index: 1000; /* Lower z-index than header */
+  box-shadow: var(--shadow);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 30px;
+  overflow: hidden;
+}
+
+
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0; /* Reset padding */
+  margin: 0; /* Reset margin */
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px; /* Rounded left top corner */
+  border-bottom-left-radius: 30px; /* Rounded left bottom corner */
+  margin: 30px 0;
+  overflow: hidden;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: var(--white);
+  transition: var(--transition-speed);
+}
+
+.navigation ul li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: var(--white);
+  transition: var(--transition-speed);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--blue);
+  background-color: var(--white);
+  border-left: 5px solid var(--blue);
+}
+
+.navigation ul li a .icon {
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  padding-left: 10px;
+  font-size: 1.1rem;
+  transition: var(--transition-speed);
+}
+
+/* Remove complex hover before/after */
+.navigation ul li a::before,
+.navigation ul li a::after {
+  display: none;
+}
+
+/* Remove hover effects for the index.php link */
+.navigation ul li a.no-hover:hover,
+.navigation ul li a.no-hover.hovered {
+  background-color: transparent; /* No background change */
+  color: var(--white); /* Keep the text color the same */
+  border-left: none; /* Remove any border effect */
+}
+
+/* =========== Hamburger Menu for Mobile ============ */
+.hamburger {
+  display: block; /* Always visible */
+  cursor: pointer;
+  position: fixed; /* Keep it fixed for visibility */
+  top: 20px; /* Adjusted position at the top */
+  left: 20px; /* Position from the left */
+  z-index: 1001; /* Keep it above other elements */
+  transition: var(--transition-speed);
+}
+
+.hamburger .bar {
+  width: 35px;
+  height: 4px;
+  background-color: var(--blue);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.hamburger.open .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media (max-width: 991px) {
+  .hamburger {
+    display: block; /* Make the hamburger visible on small screens */
+  }
+
+  .navigation {
+    left: -300px;
+  }
+
+  .navigation.active {
+    left: 0;
+    width: 300px;
+  }
+
+  .main {
+    width: 100%;
+    left: 0;
+  }
+
+  .main.active {
+    left: 300px;
+  }
+
+  .main.active .toggle {
+    color: var(--white);
+    position: fixed;
+    right: 0;
+    z-index: 1001;
+  }
+}
+
+/* ===================== Main ===================== */
+.main {
+  position: relative;
+  width: calc(100% - 300px);
+  left: 300px;
+  background: var(--gray);
+  transition: var(--transition-speed);
+}
+
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+/* ===================== Slider ===================== */
+.news-slider {
+  max-height: 300px; /* Retain the maximum height of the slider */
+  width: 100%; /* Extend slider to full width */
+  margin: 0; /* Remove margin to avoid offset */
+  position: relative; /* Position for controls */
+  overflow: hidden; /* Hides overflow from slides */
+  border-radius: 15px; /* Rounded corners for the slider */
+  box-shadow: var(--shadow); /* Shadow for depth */
+} 
+
+.slider-container {
+  display: flex; /* Flexbox for horizontal slide arrangement */
+  transition: transform var(--transition-speed); /* Smooth transition for slide movement */
+}
+
+.slide {
+  min-width: 100%; /* Each slide takes full width */
+  transition: opacity var(--transition-speed); /* Smooth transition for opacity */
+  position: relative; /* For overlay positioning */
+}
+
+.slide img {
+  width: 100%; /* Make image responsive */
+  height: 300px; /* Set a fixed height for the slide images */
+  object-fit: cover; /* Maintain aspect ratio and fill the container */
+  border-radius: 10px; /* Reduce the border radius for smaller slides */
+}
+
+.slider-controls {
+  position: absolute; /* Positioning for controls */
+  top: 50%; /* Center vertically */
+  left: 0; /* Align left */
+  width: 100%; /* Full width */
+  display: flex; /* Flexbox for controls */
+  justify-content: space-between; /* Space between buttons */
+  transform: translateY(-50%); /* Center vertically */
+}
+
+.slider-controls button {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  border: none; /* No border */
+  border-radius: 50%; /* Round buttons */
+  width: 40px; /* Width of buttons */
+  height: 40px; /* Height of buttons */
+  cursor: pointer; /* Pointer on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  transition: background-color var(--transition-speed), transform var(--transition-speed); /* Transition for hover */
+}
+
+.slider-controls button:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* =================== Job Postings =================== */
+.job-postings {
+  margin: 30px 0; /* Margin for aesthetics */
+}
+
+.job {
+  background: var(--white); /* White background */
+  border-radius: 15px; /* Rounded corners */
+  padding: 20px; /* Padding for inner content */
+  box-shadow: var(--shadow); /* Shadow for depth */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed); /* Smooth transitions */
+  position: relative; /* Positioning for hover effects */
+}
+
+.job:hover {
+  transform: translateY(-5px); /* Raise effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.job h3 {
+  margin-bottom: 10px; /* Space below job title */
+  font-size: 1.4rem; /* Larger font size for job title */
+  color: var(--blue); /* Use primary color for job title */
+}
+
+.job p {
+  margin-bottom: 15px; /* Space below job location */
+  color: var(--black2); /* Grey for location text */
+}
+
+.apply-now {
+  background: var(--blue); /* Primary color for button */
+  color: var(--white); /* White text */
+  border: none; /* No border */
+  padding: 10px 15px; /* Button padding */
+  border-radius: 5px; /* Rounded button */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color var(--transition-speed), transform var(--transition-speed); /* Smooth transitions */
+}
+
+.apply-now:hover {
+  background: var(--white); /* White background on hover */
+  color: var(--blue); /* Blue text on hover */
+  transform: scale(1.05); /* Slightly enlarge button */
+}
+
+/* =============== Footer ================ */
+.footer {
+  display: flex;
+  justify-content: center; /* Center footer content */
+  align-items: center; /* Center items vertically */
+  padding: 20px; /* Padding for aesthetics */
+  background: var(--blue); /* Background color for footer */
+  color: var(--white); /* Text color */
+}
+
+.footer p {
+  margin: 0; /* Remove margin */
+  font-size: 1rem; /* Font size for footer text */
+}
+
+/* ==================== Media Queries =================== */
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.2rem; /* Smaller font size for mobile */
+  }
+
+  .main {
+    width: 100%; /* Full width on mobile */
+    left: 0; /* No offset on mobile */
+  }
+
+  .job {
+    padding: 15px; /* Smaller padding for mobile */
+  }
+
+  .apply-now {
+    padding: 8px 12px; /* Smaller button padding */
+  }
+
+  .slider-controls button {
+    width: 35px; /* Smaller buttons */
+    height: 35px; /* Smaller buttons */
+  }
+
+  .job h3 {
+    font-size: 1.2rem; /* Smaller font size for job titles */
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1rem; /* Even smaller font size for very small devices */
+  }
+
+  .job h3 {
+    font-size: 1rem; /* Adjust job title size for small screens */
+  }
+
+  .job p {
+    font-size: 0.9rem; /* Smaller paragraph text */
+  }
+
+  .apply-now {
+    font-size: 0.9rem; /* Adjust button size */
+  }
+}

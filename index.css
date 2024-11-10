@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap');
+
+/* Global reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Base styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 80  px; 
+}
+
+/* Header styling */
+header {
+    width: 100%;
+    min-height: calc(10vh - 8px); 
+    background: linear-gradient(rgba(20, 20, 18, 0.8), rgba(255, 255, 16, 0.2)), url(12.jpg) no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Offset for fixed navbar */
+}
+
+
+/* Navbar styling */
+nav {
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(11, 11, 10, 0.6);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+nav.hidden {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+/* Logo styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon img {
+    vertical-align: middle;
+}
+
+.logo {
+    font-size: 1.8em;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Menu styling */
+.menu a, .register a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background 0.4s, border 0.4s;
+}
+
+.menu a:hover, .register a:hover {
+    border: 1px solid indianred;
+    background: transparent;
+}
+
+/* Register/Login Button styling */
+.register a {
+    background: indianred;
+    border-radius: 8px;
+}
+
+/* Hamburger menu styling for mobile */
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hero text styling */
+.h-text {
+    position: relative;
+    text-align: center;
+    color: #100f0f;
+    padding: 2rem;
+}
+
+.h-text span {
+    letter-spacing: 5px;
+    font-size: 1.1rem;
+}
+
+.h-text h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.h-text a {
+    text-decoration: none;
+    background: indianred;
+    padding: 12px 30px;
+    color: #fff;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    transition: background 0.3s, border 0.3s;
+}
+
+.h-text a:hover {
+    border: 1px solid indianred;
+    background: transparent;
+}
+
+/* Styling for section containers */
+.section {
+    padding: 6rem 2rem;
+    background: #f9f9f9;
+    text-align: center;
+    border-top: 1px solid #e6e6e6;
+}
+
+.section:nth-of-type(odd) {
+    background: #fff;
+}
+
+.container {
+    max-width: 1000px; /* Increased width for larger screens */
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Section headings */
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.section h2::after {
+    content: '';
+    width: 50px;
+    height: 4px;
+    background: indianred;
+    display: block;
+    margin: 0.5rem auto;
+}
+
+/* Section paragraph styling */
+.section p {
+    max-width: 700px;
+    margin: 1rem auto 2rem;
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Jobs apply button styling */
+.apply-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    color: #fff;
+    background-color: indianred;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.apply-button:hover {
+    background-color: #b22222;
+    transform: scale(1.05);
+}
+
+/* Contact Section Styling */
+/* Contact Section Styling */
+.contact-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 10px; /* Reduce top margin */
+    flex-wrap: wrap; /* Allow wrapping */
+    
+}
+
+.map-container {
+    flex: 1; /* Allow map to take available space */
+    min-width: 300px; /* Minimum width for responsiveness */
+    margin-right: 10px; /* Reduce space between map and form */
+    height: 300px; /* Set a smaller height for the map */
+}
+
+.map-container iframe {
+    width: 100%; /* Make map responsive */
+    height: 100%; /* Adjust height to fit the container */
+    border: 0; /* Remove border */
+}
+
+.form-container {
+    flex: 1; /* Allow form to take available space */
+    min-width: 300px; /* Minimum width for responsiveness */
+    margin-left: 10px; /* Reduce space between map and form */
+}
+
+.form-container form {
+    display: grid;
+    gap: 0.75rem; /* Reduce gap between form elements */
+}
+
+.form-container input, .form-container textarea {
+    width: 100%;
+    padding: 0.5rem; /* Reduce padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Adjust font size */
+}
+
+.form-container button {
+    padding: 0.5rem; /* Reduce padding */
+    background: indianred;
+    color: #fff;
+    font-size: 1rem; /* Adjust font size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-container button:hover {
+    background: #b22222;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+
+    .map-container, .form-container {
+        width: 100%; /* Full width on small screens */
+        margin-right: 0; /* Remove right margin */
+        margin-left: 0; /* Remove left margin */
+    }
+
+    .map-container {
+        margin-bottom: 10px; /* Space between map and form */
+    }
+}
+
+
+/* Responsive styling */
+
+/* Medium screens */
+@media (min-width: 768px) and (max-width: 1200px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .h-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .menu a, .register a {
+        font-size: 1rem;
+    }
+
+    form {
+        width: 80%;
+    }
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+    /* Hide menu and show burger icon on smaller screens */
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 80%;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .menu.active {
+        display: flex; /* Display menu when active */
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .logo {
+        font-size: 1.5em;
+    }
+
+    .section {
+        padding: 4rem 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .h-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .h-text span {
+        font-size: 1rem;
+    }
+
+    form {
+        width: 90%;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+
+    .h-text h1 {
+        font-size: 4rem;
+    }
+
+    .h-text span {
+        font-size: 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 3rem;
+    }
+
+    .section p {
+        font-size: 1.2rem;
+    }
+
+    .apply-button {
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+    }
+
+    form input, form textarea {
+        font-size: 1.2rem;
+    }
+
+    form button {
+        font-size: 1.2rem;
+    }
+}

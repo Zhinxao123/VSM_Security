@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page - VSM Security</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+           #home {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0; /* Remove the top margin */
+            padding: 0; /* Ensure no padding is applied */
+    }
+
+
+            .slider {
+            width: 100%;
+            height: 90%;
+            display: flex;
+            position: relative;
+            justify-content: center;
+    }
+
+
+
+            
+    .slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                transition: opacity 1s ease;
+            }
+
+            .slide.active {
+                opacity: 1;
+            }
+
+            /* Gradient Overlay */
+            .slider::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+                z-index: 1;
+            }
+
+            /* Arrows */
+            .arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+                width: 50px;
+                height: 50px;
+                background-color: rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                font-size: 20px;
+                color: #333;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+            .arrow:hover {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+
+            .arrow-left {
+                left: 20px;
+                transform: translateY(-50%);
+            }
+
+            .arrow-right {
+                right: 20px;
+                transform: translateY(-50%);
+            }
+
+            /* Dots */
+            .dots-container {
+                position: absolute;
+                bottom: 20px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                z-index: 2;
+            }
+
+            .dot {
+                width: 12px;
+                height: 12px;
+                background-color: rgba(255, 255, 255, 0.6);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .dot.active {
+                background-color: #ffffff;
+            }
+
+            /* Profile Icon Styling */
+            .profile-icon {
+                margin-left: 10px;
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-image: url('defaultpic.jpg');
+                background-size: cover;
+                background-position: center;
+                overflow: hidden;
+            }
+
+            /* Dropdown Menu Styling */
+            .dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                border-radius: 5px;
+                overflow: hidden;
+                width: 150px;
+                z-index: 1000;
+            }
+
+            .dropdown-menu.active {
+                display: block;
+            }
+
+            .dropdown-menu a {
+                display: block;
+                padding: 10px;
+                color: #333;
+                text-decoration: none;
+                transition: background 0.3s;
+            }
+
+            .dropdown-menu a:hover {
+                background-color: #f0f0f0;
+            }
+        </style>
+</head>
+<body>
+   <header>
+    <nav>
+        <div class="logo-container">
+            <div class="icon"><img src="logovsm.jpg" alt="VSM Security Logo" width="40" height="50"></div>
+            <div class="logo">VSM Security</div>
+        </div>
+        <div class="menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#jobs">Jobs</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="register">
+            <a href="login.html">Login</a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+</header>
+
+    <!-- Home Section (Full Page Image Slider with Arrows) -->
+    <section id="home" class="section">
+        <div class="slider">
+            <!-- Slide 1 -->
+            <div class="slide" style="background-image: url('vsm1.jpg');"></div>
+            <!-- Slide 2 -->
+            <div class="slide" style="background-image: url('vsm2.jpg');"></div>
+            <!-- Slide 3 -->
+            <div class="slide" style="background-image: url('vsm3.jpg');"></div>
+        </div>
+        <button class="arrow arrow-left" onclick="prevSlide()">&#10094;</button>
+        <button class="arrow arrow-right" onclick="nextSlide()">&#10095;</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>VSM Security is a leading provider of security solutions, dedicated to keeping communities and organizations safe with innovative security technology and professional services.</p>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section id="jobs" class="section">
+        <div class="container">
+            <h2>Career Opportunities</h2>
+            <p>Security guard, Accountant, Human Resources</p>
+            <a href="login.html" class="apply-button">Apply Now!</a>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance, reach out to us!</p>
+            
+            <div class="contact-content">
+                <!-- Map on the left -->
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1860.7774726575176!2d121.1713016618809!3d14.214653236772763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd6180647ae31f%3A0xd68c14b6b9285176!2sVSM%20Security%20%26%20Investigation%20Agency!5e0!3m2!1sen!2sph!4v1730698155757!5m2!1sen!2sph"  allowfullscreen="" loading="lazy" ></iframe>
+                      
+                </div>
+
+                <!-- Form on the right -->
+                <div class="form-container">
+                    <form action="send_email.php" method="post">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for menu links
+        document.querySelectorAll('.menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+      let lastScrollTop = 0;
+let timer;
+const nav = document.querySelector('nav');
+
+window.addEventListener('scroll', () => {
+    clearTimeout(timer);
+    const scrollTop = window.scrollY || document.documentElement.scrollTop; // Get current scroll position
+
+    if (scrollTop > 0) { // Check if not at the top
+        nav.classList.remove('hidden'); // Show nav when scrolling down
+    } else {
+        nav.classList.remove('hidden'); // Keep nav visible at the top
+    }
+
+    // Hide nav after 2 seconds of inactivity while scrolling down
+    timer = setTimeout(() => {
+        if (scrollTop > 0) { // Only hide if scrolled down
+            nav.classList.add('hidden');
+        }
+    }, 1000);
+});
+
+// Show nav when cursor is over nav
+nav.addEventListener('mouseenter', () => {
+    nav.classList.remove('hidden'); // Show nav when mouse enters
+});
+
+// Optionally hide nav when mouse leaves if needed
+nav.addEventListener('mouseleave', () => {
+    timer = setTimeout(() => {
+        if (window.scrollY > 0) { // Only hide if scrolled down
+            nav.classList.add('hidden');
+        }
+    }, 1000);
+});
+let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = (i === index) ? '1' : '0';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 5000); 
+    </script>
+</body>
+</html>
